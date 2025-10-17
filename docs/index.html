@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen Look - Estética Premium & Bem-Estar</title>
+    <meta name="description"
+        content="Espaço de estética premium em ambiente acolhedor. Especialistas em Cílios, Sobrancelha, Massagem, Podologia e mais. Agende agora.">
+    <meta property="og:title" content="Queen Look - Estética Premium & Bem-Estar">
+    <meta property="og:description"
+        content="Espaço de estética premium com serviços de excelência para realçar sua beleza natural.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Queen Look</div>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#contato" class="btn-cta">Agendar Agora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Realce sua Beleza Natural</h1>
+                <p class="hero-subtitle">Estética premium em ambiente acolhedor, com profissionais especializados
+                    dedicados ao seu bem-estar</p>
+                <a href="#contato" class="btn-primary">Agendar Agora</a>
+            </div>
+        </section>
+
+        <section id="servicos" class="services">
+            <div class="container">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-subtitle">Soluções personalizadas para cuidar de você</p>
+
+                <div class="services-featured">
+                    <div class="service-card featured">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #f5e6e8 0%, #d5c6c8 100%);"></div>
+                        <div class="service-content">
+                            <span class="service-badge">Destaque</span>
+                            <h3>Cílios</h3>
+                            <p>Extensão de cílios fio a fio, volume brasileiro e lifting. Realce seu olhar com técnicas
+                                premium.</p>
+                            <button class="btn-secondary" data-service="cilios">Saiba Mais</button>
+                        </div>
+                    </div>
+                    <div class="service-card featured">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #e8d5d0 0%, #c8b5b0 100%);"></div>
+                        <div class="service-content">
+                            <span class="service-badge">Destaque</span>
+                            <h3>Sobrancelha</h3>
+                            <p>Design de sobrancelhas, micropigmentação e henna. Moldura perfeita para seu rosto.</p>
+                            <button class="btn-secondary" data-service="sobrancelha">Saiba Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-filter">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="facial">Facial</button>
+                    <button class="filter-btn" data-filter="corporal">Corporal</button>
+                    <button class="filter-btn" data-filter="consultoria">Consultoria</button>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-category="corporal">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #f0e6e8 0%, #d8cece 100%);"></div>
+                        <div class="service-content">
+                            <h3>Massagem</h3>
+                            <p>Relaxante, modeladora e terapêutica. Equilíbrio para corpo e mente.</p>
+                            <button class="btn-secondary" data-service="massagem">Saiba Mais</button>
+                        </div>
+                    </div>
+                    <div class="service-card" data-category="corporal">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #e8e0e6 0%, #d0c8ce 100%);"></div>
+                        <div class="service-content">
+                            <h3>Podologia</h3>
+                            <p>Cuidados profissionais para seus pés. Saúde e estética em um só lugar.</p>
+                            <button class="btn-secondary" data-service="podologia">Saiba Mais</button>
+                        </div>
+                    </div>
+                    <div class="service-card" data-category="facial">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #f5e8e6 0%, #ddd0ce 100%);"></div>
+                        <div class="service-content">
+                            <h3>Cabelo</h3>
+                            <p>Corte, coloração, tratamentos capilares. Seu cabelo dos sonhos.</p>
+                            <button class="btn-secondary" data-service="cabelo">Saiba Mais</button>
+                        </div>
+                    </div>
+                    <div class="service-card" data-category="corporal">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #e6e8f0 0%, #cecdd8 100%);"></div>
+                        <div class="service-content">
+                            <h3>Depilação a Laser</h3>
+                            <p>Tecnologia avançada para pele suave e duradoura. Conforto e eficácia.</p>
+                            <button class="btn-secondary" data-service="depilacao">Saiba Mais</button>
+                        </div>
+                    </div>
+                    <div class="service-card" data-category="consultoria">
+                        <div class="service-image"
+                            style="background: linear-gradient(135deg, #e8e6f0 0%, #d0ced8 100%);"></div>
+                        <div class="service-content">
+                            <h3>Assessoria Jurídica</h3>
+                            <p>Consultoria especializada para profissionais de estética e beleza.</p>
+                            <button class="btn-secondary" data-service="juridica">Saiba Mais</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rotating-spaces">
+                    <h3 class="subsection-title">Espaços em Rotatividade</h3>
+                    <div class="services-grid">
+                        <div class="service-card rotating" data-category="facial">
+                            <div class="service-image"
+                                style="background: linear-gradient(135deg, #f0e8e6 0%, #d8d0ce 100%);"></div>
+                            <div class="service-content">
+                                <span class="service-badge new">Novo</span>
+                                <h3>Estética Facial</h3>
+                                <p>Limpeza de pele, peeling e tratamentos anti-idade.</p>
+                                <button class="btn-secondary" data-service="estetica-facial">Saiba Mais</button>
+                            </div>
+                        </div>
+                        <div class="service-card rotating" data-category="corporal">
+                            <div class="service-image"
+                                style="background: linear-gradient(135deg, #e6f0e8 0%, #ced8d0 100%);"></div>
+                            <div class="service-content">
+                                <span class="service-badge soon">Em Breve</span>
+                                <h3>Drenagem Linfática</h3>
+                                <p>Técnica especializada para bem-estar e redução de inchaço.</p>
+                                <button class="btn-secondary" data-service="drenagem" disabled>Em Breve</button>
+                            </div>
+                        </div>
+                        <div class="service-card rotating" data-category="corporal">
+                            <div class="service-image"
+                                style="background: linear-gradient(135deg, #f0e6ea 0%, #d8ced2 100%);"></div>
+                            <div class="service-content">
+                                <span class="service-badge soon">Em Breve</span>
+                                <h3>Reflexologia</h3>
+                                <p>Terapia holística através dos pontos reflexos dos pés.</p>
+                                <button class="btn-secondary" data-service="reflexologia" disabled>Em Breve</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quem-somos" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Quem Somos</h2>
+                        <p>O Queen Look nasceu da paixão por realçar a beleza natural de cada pessoa. Somos um espaço
+                            multidisciplinar que reúne profissionais especializados, comprometidos em oferecer
+                            experiências transformadoras com excelência técnica e cuidado genuíno.</p>
+                        <p>Acreditamos que beleza vai além da estética: é autoestima, bem-estar e autoconhecimento. Por
+                            isso, criamos um ambiente acolhedor e sofisticado, onde cada detalhe é pensado para
+                            proporcionar momentos únicos de cuidado pessoal.</p>
+                        <p>Nossa equipe atualiza-se constantemente com as melhores práticas do mercado, aliando técnicas
+                            modernas a um atendimento humanizado. Aqui, você é única.</p>
+                    </div>
+                    <div class="about-gallery">
+                        <div class="gallery-item"
+                            style="background: linear-gradient(135deg, #f5e6e8 0%, #e0d0d2 100%);"></div>
+                        <div class="gallery-item"
+                            style="background: linear-gradient(135deg, #e8d5d0 0%, #d2c0bb 100%);"></div>
+                        <div class="gallery-item"
+                            style="background: linear-gradient(135deg, #f0e6e8 0%, #dad0d2 100%);"></div>
+                        <div class="gallery-item"
+                            style="background: linear-gradient(135deg, #e8e0e6 0%, #d2cad0 100%);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <p class="section-subtitle">Estamos prontos para cuidar de você</p>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon phone"></div>
+                            <div>
+                                <h3>Telefone</h3>
+                                <a href="tel:+5511999999999">(11) 99999-9999</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon whatsapp"></div>
+                            <div>
+                                <h3>WhatsApp</h3>
+                                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20agendar%20um%20horário."
+                                    target="_blank" rel="noopener">Enviar Mensagem</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon email"></div>
+                            <div>
+                                <h3>E-mail</h3>
+                                <a href="mailto:contato@queenlook.com.br">contato@queenlook.com.br</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon location"></div>
+                            <div>
+                                <h3>Endereço</h3>
+                                <p>Rua das Flores, 123<br>Jardim Paulista, São Paulo - SP<br>CEP 01234-567</p>
+                                <a href="https://maps.google.com/?q=Rua+das+Flores+123+Jardim+Paulista+São+Paulo"
+                                    target="_blank" rel="noopener" class="btn-secondary">Como Chegar</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon clock"></div>
+                            <div>
+                                <h3>Horário de Funcionamento</h3>
+                                <p>Segunda a Sexta: 9h às 20h<br>Sábado: 9h às 18h<br>Domingo: Fechado</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1976!2d-46.6729!3d-23.5629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQ2LjQiUyA0NsKwNDAnMjIuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Localização Queen Look">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Queen Look</div>
+                    <p>Estética Premium & Bem-Estar</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/queenlook" target="_blank" rel="noopener" aria-label="Instagram">
+                            <div class="social-icon instagram"></div>
+                        </a>
+                        <a href="https://facebook.com/queenlook" target="_blank" rel="noopener" aria-label="Facebook">
+                            <div class="social-icon facebook"></div>
+                        </a>
+                        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <div class="social-icon whatsapp"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-address">
+                    <h4>Endereço</h4>
+                    <p>Rua das Flores, 123<br>Jardim Paulista, São Paulo - SP</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Queen Look. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="serviceModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar">&times;</button>
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+                <a href="#contato" class="btn-primary modal-cta">Agendar Agora</a>
+            </div>
+        </div>
+    </div>
+    <script defer src="script.js?v=1"></script>\
+</body>
+
+</html>
