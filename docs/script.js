@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
       description:
         'Corrija imperfeições do nariz sem cirurgia com rinomodelação no Tatuapé. Resultado imediato, sem tempo de recuperação como em cirurgias, com planejamento para um perfil harmonioso e alinhado ao restante do rosto.'
     },
-    'harmonizacao-labial': {
-      title: 'Harmonização labial',
+    'jato-plasma': {
+      title: 'Jato de Plasma (remoção de verrugas)',
       description:
-        'Equilíbrio de cor e forma dos lábios no Tatuapé, com técnica micropigmentar precisa. Indicado para uniformizar tons, definir contorno com naturalidade e integrar o sorriso ao restante da estética facial, sempre com avaliação prévia.'
+        'Remoção segura de verrugas, pintas e pequenas imperfeições da pele com tecnologia de jato de plasma no Tatuapé. Procedimento rápido, eficaz e com excelente resultado estético. Avaliação individualizada para definir o melhor protocolo para o seu caso, com foco em segurança e acabamento natural.'
     },
     'revitalizacao-labial': {
       title: 'Revitalização labial',
