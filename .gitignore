@@ -1,0 +1,62 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# === Logs ===
+logs
+*.log
+*.log.*
+
+# === Sistema ===
+.DS_Store
+Thumbs.db
+
+# === Ambiente ===
+.env
+.env.local
+.env.*.local
+
+# === Build / Output ===
+dist/
+build/
+out/
+coverage/
+
+# === Cache ===
+.cache/
+.tmp/
+.vscode/
+.idea/
+*.swp
+
+# === Uploads e arquivos gerados ===
+uploads/
+*.zip
+*.tar
+*.gz
+
+# === OS ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Windows
+ehthumbs.db
+Desktop.ini
+
+# === PWA / front ===
+public/service-worker.js
+public/manifest.webmanifest
+
+# === Docs e backups ===
+docs-backup/
+*.bak
+*.old

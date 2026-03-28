@@ -1,97 +1,178 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-menu a');
+  const header = document.querySelector('.header');
+  const menuToggle = document.getElementById('menuToggle');
+  const nav = document.querySelector('.nav');
+  const navMenu = document.getElementById('navMenu');
+  const navBackdrop = document.getElementById('navBackdrop');
+  const navLinks = document.querySelectorAll('#navMenu a');
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const serviceCards = document.querySelectorAll('.service-card:not(.featured)');
+  const serviceCards = document.querySelectorAll('.service-card');
   const modal = document.getElementById('serviceModal');
   const modalClose = document.querySelector('.modal-close');
   const modalOverlay = document.querySelector('.modal-overlay');
   const modalTitle = document.getElementById('modalTitle');
   const modalDescription = document.getElementById('modalDescription');
   const serviceButtons = document.querySelectorAll('[data-service]');
+  const heroSlides = document.querySelectorAll('.hero-slide');
 
   const serviceDetails = {
-    cilios: {
-      title: 'Extensão de Cílios',
-      description: 'Oferecemos extensão de cílios fio a fio, volume brasileiro, volume russo e lifting de cílios. Nossos profissionais utilizam técnicas modernas e produtos de alta qualidade para garantir resultados naturais e duradouros. Realce seu olhar com segurança e conforto.'
+    botox: {
+      title: 'Botox (toxina botulínica)',
+      description:
+        'Suavize linhas de expressão com aplicação de toxina botulínica no Tatuapé. Procedimento seguro, com avaliação individualizada, que proporciona aparência mais jovem e natural, sem abrir mão da expressividade quando bem indicado.'
     },
-    sobrancelha: {
-      title: 'Design de Sobrancelha',
-      description: 'Design personalizado de sobrancelhas, micropigmentação fio a fio, henna e laminação. Analisamos seu formato de rosto para criar a moldura perfeita que realça sua beleza natural. Resultados impecáveis com técnicas atualizadas.'
+    'preenchimento-labial': {
+      title: 'Preenchimento labial',
+      description:
+        'Realce o volume e contorno dos lábios com preenchimento labial no Tatuapé, garantindo harmonia facial e resultados naturais. Técnica refinada para equilíbrio entre lábios e traços, com foco em segurança e naturalidade.'
     },
-    massagem: {
-      title: 'Massagem Terapêutica',
-      description: 'Massagem relaxante, modeladora, desportiva e terapêutica. Nossos massoterapeias especializados aplicam técnicas que promovem relaxamento profundo, alívio de tensões e bem-estar físico e mental. Um momento de paz e renovação.'
+    rinomodelacao: {
+      title: 'Rinomodelação (rinopreenchimento)',
+      description:
+        'Corrija imperfeições do nariz sem cirurgia com rinomodelação no Tatuapé. Resultado imediato, sem tempo de recuperação como em cirurgias, com planejamento para um perfil harmonioso e alinhado ao restante do rosto.'
     },
-    podologia: {
-      title: 'Podologia Especializada',
-      description: 'Cuidados completos para seus pés: tratamento de calosidades, unhas encravadas, micose, e spa dos pés. Nossa podóloga qualificada oferece atendimento profissional com foco em saúde e estética, garantindo conforto e segurança.'
+    'harmonizacao-labial': {
+      title: 'Harmonização labial',
+      description:
+        'Equilíbrio de cor e forma dos lábios no Tatuapé, com técnica micropigmentar precisa. Indicado para uniformizar tons, definir contorno com naturalidade e integrar o sorriso ao restante da estética facial, sempre com avaliação prévia.'
     },
-    cabelo: {
-      title: 'Tratamentos Capilares',
-      description: 'Corte, coloração, mechas, alisamentos, tratamentos de reconstrução e hidratação profunda. Nossa equipe de cabeleireiros está sempre atualizada com as últimas tendências e técnicas para transformar seu cabelo dos sonhos em realidade.'
+    'revitalizacao-labial': {
+      title: 'Revitalização labial',
+      description:
+        'Protocolo para devolver viço e aparência saudável aos lábios em São Paulo, ideal como preparação ou manutenção após harmonização ou micropigmentação. Atendimento personalizado e resultados discretos e elegantes.'
     },
-    depilacao: {
-      title: 'Depilação a Laser',
-      description: 'Tecnologia de ponta em depilação a laser para remoção permanente de pelos. Equipamentos modernos que garantem eficácia e conforto durante o procedimento. Pele suave e livre de pelos por muito mais tempo.'
+    'micropigmentacao-labial': {
+      title: 'Micropigmentação labial',
+      description:
+        'Definição duradoura de contorno e cor dos lábios em São Paulo, especialmente no Tatuapé, com técnica que valoriza simetria, conforto e um resultado natural no dia a dia, elevando sua autoestima.'
     },
-    juridica: {
-      title: 'Assessoria Jurídica',
-      description: 'Consultoria jurídica especializada para profissionais de estética e beleza. Orientação sobre regulamentação, contratos, direitos e deveres, abertura de empresa e questões trabalhistas. Proteja seu negócio com segurança jurídica.'
+    microblading: {
+      title: 'Microblading fio a fio (hiper-realista)',
+      description:
+        'Sobrancelhas com aparência natural no Tatuapé: fios desenhados um a um para simular pelo real e emoldurar o olhar. Ideal para quem busca hiper-realismo e harmonia com o rosto, com técnica atualizada e segura.'
     },
-    'estetica-facial': {
-      title: 'Estética Facial',
-      description: 'Limpeza de pele profunda, peeling químico, microagulhamento, tratamentos anti-idade e lifting facial. Protocolos personalizados para cada tipo de pele, visando rejuvenescimento, luminosidade e saúde da pele do rosto.'
+    'shadow-line': {
+      title: 'Shadow line (fio + sombra)',
+      description:
+        'Técnica combinada de fio e sombra para densidade e profundidade nas sobrancelhas, com acabamento suave e elegante no Tatuapé. Resultado dimensional e natural, respeitando seu formato e estilo.'
     },
-    drenagem: {
-      title: 'Drenagem Linfática',
-      description: 'Técnica especializada de massagem que estimula o sistema linfático, promovendo eliminação de toxinas, redução de inchaço e retenção de líquidos. Ideal para pós-operatório e bem-estar geral. Em breve no Queen Look.'
-    },
-    reflexologia: {
-      title: 'Reflexologia Podal',
-      description: 'Terapia holística que trabalha pontos reflexos dos pés correspondentes a órgãos e sistemas do corpo. Promove relaxamento profundo, equilíbrio energético e bem-estar geral. Uma experiência única de autocuidado. Em breve no Queen Look.'
+    'cilios-hibrido': {
+      title: 'Alongamento de cílios híbrido',
+      description:
+        'Olhar marcante e natural: mistura de fios para volume e definição, aplicada com segurança para valorizar seus cílios no Tatuapé. Conforto e durabilidade com visual equilibrado, sem exageros.'
     }
   };
 
-  if (menuToggle) {
+  const isMobileNav = () => window.matchMedia('(max-width: 768px)').matches;
+
+  const closeMenu = () => {
+    if (!nav || !menuToggle) return;
+    nav.classList.remove('is-open');
+    if (navBackdrop) {
+      navBackdrop.classList.remove('is-open');
+      navBackdrop.setAttribute('aria-hidden', 'true');
+    }
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menu');
+    document.body.classList.remove('nav-open');
+  };
+
+  const openMenu = () => {
+    if (!nav || !menuToggle) return;
+    nav.classList.add('is-open');
+    if (navBackdrop) {
+      navBackdrop.classList.add('is-open');
+      navBackdrop.setAttribute('aria-hidden', 'false');
+    }
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', 'Fechar menu');
+    document.body.classList.add('nav-open');
+  };
+
+  const toggleMenu = () => {
+    if (nav.classList.contains('is-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  };
+
+  const scrollToSection = id => {
+    const el = document.getElementById(id);
+    if (el && header) {
+      window.scrollTo({
+        top: el.offsetTop - header.offsetHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  document.querySelectorAll('.logo-link[href="#home"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      e.preventDefault();
+      scrollToSection('home');
+      closeMenu();
+    });
+  });
+
+  if (menuToggle && nav) {
     menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      toggleMenu();
+    });
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', () => {
+      if (isMobileNav()) closeMenu();
     });
   }
 
   navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (link.getAttribute('href').startsWith('#')) {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1) {
         e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-
-        if (targetSection) {
-          const headerHeight = document.querySelector('.header').offsetHeight;
-          const targetPosition = targetSection.offsetTop - headerHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-
-        navMenu.classList.remove('active');
+        const id = href.slice(1);
+        scrollToSection(id);
+        closeMenu();
       }
     });
   });
 
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      closeMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (!isMobileNav()) closeMenu();
+  });
+
+  if (heroSlides.length > 1) {
+    let slideIndex = 0;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      setInterval(() => {
+        heroSlides[slideIndex].classList.remove('is-active');
+        slideIndex = (slideIndex + 1) % heroSlides.length;
+        heroSlides[slideIndex].classList.add('is-active');
+      }, 5000);
+    }
+  }
+
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
       const filter = button.getAttribute('data-filter');
-
       filterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
 
       serviceCards.forEach(card => {
         const category = card.getAttribute('data-category');
-
         if (filter === 'todos' || category === filter) {
           card.classList.remove('hidden');
           card.style.animation = 'fadeInUp 0.5s ease';
@@ -121,55 +202,56 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'auto';
   };
 
-  if (modalClose) {
-    modalClose.addEventListener('click', closeModal);
-  }
-
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', closeModal);
-  }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+  document.querySelectorAll('.modal-cta[href="#contato"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
       closeModal();
-    }
+      scrollToSection('contato');
+    });
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeModal();
-    }
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
   });
 
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+        entry.target.style.animation = 'fadeInUp 0.65s ease forwards';
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.service-card, .gallery-item').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.service-card').forEach(el => observer.observe(el));
+
+  const revealObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -20px 0px' }
+  );
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   let lastScroll = 0;
-  const header = document.querySelector('.header');
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-
-    if (currentScroll > lastScroll && currentScroll > 100) {
+    if (currentScroll > lastScroll && currentScroll > 120) {
       header.style.transform = 'translateY(-100%)';
     } else {
       header.style.transform = 'translateY(0)';
     }
-
     lastScroll = currentScroll;
   });
 });

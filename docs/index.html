@@ -3,16 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queen Look - Estética Premium & Bem-Estar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Botox e Preenchimento Labial no Tatuapé | Talita Estética Facial</title>
     <meta name="description"
-        content="Espaço de estética premium em ambiente acolhedor. Especialistas em Cílios, Sobrancelha, Massagem, Podologia e mais. Agende agora.">
-    <meta property="og:title" content="Queen Look - Estética Premium & Bem-Estar">
+        content="Especialista em botox no Tatuapé, preenchimento labial no Tatuapé, rinomodelação e estética facial em São Paulo. Agende sua avaliação.">
+    <meta name="google-site-verification" content="e8tsI6PZ_1neOFJL6BmOztBeFnJcC3FZuD-sKTo6lu4" />
+    <meta property="og:title" content="Talita Estética Facial, estética facial avançada no Tatuapé">
     <meta property="og:description"
-        content="Espaço de estética premium com serviços de excelência para realçar sua beleza natural.">
+        content="Botox, preenchimento labial, rinomodelação e micropigmentação no Tatuapé, São Paulo. Resultados naturais com segurança. Agende sua avaliação.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
@@ -20,224 +23,290 @@
 </head>
 
 <body>
+    <a href="#home" class="skip-link">Ir para o conteúdo</a>
+
     <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">Queen Look</div>
-                <button class="menu-toggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
+        <div class="container header-inner">
+            <a href="#home" class="logo logo-link">
+                <img src="img/logo.png" width="200" height="50" alt="Talita Estética Facial, clínica de estética facial no Tatuapé, São Paulo"
+                    loading="eager" decoding="async" class="logo-img">
+            </a>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"
+                aria-controls="navMenu">
+                <span class="menu-toggle-lines" aria-hidden="true"></span>
+            </button>
+            <nav class="nav" aria-label="Principal">
+                <ul class="nav-menu" id="navMenu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#servicos">Serviços</a></li>
                     <li><a href="#quem-somos">Quem Somos</a></li>
                     <li><a href="#contato">Contato</a></li>
-                    <li><a href="#contato" class="btn-cta">Agendar Agora</a></li>
+                    <li><a href="#contato" class="btn-cta">Agendar Avaliação</a></li>
                 </ul>
             </nav>
         </div>
+        <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
+    <main id="main-content">
+        <section id="home" class="hero" aria-labelledby="hero-heading">
+            <div class="hero-slides" aria-hidden="true">
+                <div class="hero-slide is-active">
+                    <img src="https://clinicadepele.com.br/wp-content/uploads/2023/04/aplicacao-de-botox-preco-scaled.jpg"
+                        alt="Aplicação de botox por profissional em clínica de estética facial"
+                        width="1920" height="1080" loading="eager" decoding="async" fetchpriority="high"
+                        class="hero-slide-img">
+                </div>
+                <div class="hero-slide">
+                    <img src="https://images.unsplash.com/photo-1735151226446-1d364b4adc2f?auto=format&amp;fit=crop&amp;w=2400&amp;q=85"
+                        alt="Profissional aplicando procedimento estético facial em close, área dos olhos"
+                        width="1920" height="1080" loading="lazy" decoding="async" class="hero-slide-img">
+                </div>
+                <div class="hero-slide">
+                    <img src="https://astradigitals.com/wp-content/uploads/2024/04/uma-cliente-de-uma-lash-designer.jpg"
+                        alt="Close de olhar com design de cílios e tratamento de extensão"
+                        width="1920" height="1080" loading="lazy" decoding="async" class="hero-slide-img">
+                </div>
+            </div>
             <div class="hero-content">
-                <h1 class="hero-title">Realce sua Beleza Natural</h1>
-                <p class="hero-subtitle">Estética premium em ambiente acolhedor, com profissionais especializados
-                    dedicados ao seu bem-estar</p>
-                <a href="#contato" class="btn-primary">Agendar Agora</a>
+                <p class="hero-eyebrow">Tatuapé, São Paulo</p>
+                <h1 id="hero-heading" class="hero-title">Estética facial avançada no Tatuapé</h1>
+                <p class="hero-subtitle">Botox no Tatuapé, preenchimento labial no Tatuapé, rinomodelação e
+                    micropigmentação com resultados naturais.</p>
+                <a href="#contato" class="btn-primary hero-cta">Agendar Avaliação</a>
             </div>
         </section>
 
-        <section id="servicos" class="services">
+        <section id="servicos" class="services" aria-labelledby="servicos-heading">
             <div class="container">
-                <h2 class="section-title">Nossos Serviços</h2>
-                <p class="section-subtitle">Soluções personalizadas para cuidar de você</p>
+                <h2 id="servicos-heading" class="section-title">Tratamentos de estética facial no Tatuapé</h2>
+                <p class="section-subtitle">Especialista em harmonização facial em São Paulo, com segurança,
+                    naturalidade e resultados que valorizam sua autoestima. Agende sua avaliação presencial.</p>
 
                 <div class="services-featured">
-                    <div class="service-card featured">
-                        <div class="service-image"
-                            style="background: url('img/sobrancelha.jpg') center center / cover no-repeat;">
+                    <article class="service-card featured" data-category="harmonizacao">
+                        <div class="service-image">
+                            <img src="https://images.pexels.com/photos/7446922/pexels-photo-7446922.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop"
+                                alt="Botox para linhas de expressão em São Paulo, rosto com pele natural no Tatuapé"
+                                width="600" height="400" loading="eager" decoding="async">
                         </div>
                         <div class="service-content">
                             <span class="service-badge">Destaque</span>
-                            <h3>Cílios</h3>
-                            <p>Extensão de cílios fio a fio, volume brasileiro e lifting. Realce seu olhar com técnicas
-                                premium.</p>
-                            <button class="btn-secondary" data-service="cilios">Saiba Mais</button>
+                            <h3>Botox (toxina botulínica)</h3>
+                            <p>Suavize linhas de expressão com aplicação de toxina botulínica no Tatuapé. Procedimento
+                                seguro que proporciona aparência mais jovem e natural.</p>
+                            <button type="button" class="btn-secondary" data-service="botox">Saiba Mais</button>
                         </div>
-                    </div>
-                    <div class="service-card featured">
-                        <div class="service-image"
-                            style="background: url('img/cilios.jpg') center center / cover no-repeat;">
+                    </article>
+                    <article class="service-card featured" data-category="harmonizacao">
+                        <div class="service-image">
+                            <img src="img/preenchimento-labial-copia.jpg"
+                                alt="Preenchimento labial natural no Tatuapé"
+                                width="600" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="service-content">
                             <span class="service-badge">Destaque</span>
-                            <h3>Sobrancelha</h3>
-                            <p>Design de sobrancelhas, micropigmentação e henna. Moldura perfeita para seu rosto.</p>
-                            <button class="btn-secondary" data-service="sobrancelha">Saiba Mais</button>
+                            <h3>Preenchimento labial</h3>
+                            <p>Realce o volume e contorno dos lábios com preenchimento labial no Tatuapé, garantindo
+                                harmonia facial e resultados naturais.</p>
+                            <button type="button" class="btn-secondary" data-service="preenchimento-labial">Saiba
+                                Mais</button>
                         </div>
-                    </div>
+                    </article>
+                    <article class="service-card featured" data-category="harmonizacao">
+                        <div class="service-image">
+                            <img src="img/rinomodelacao.jpg"
+                                alt="Rinomodelação e perfil nasal harmonizado no Tatuapé, São Paulo, sem cirurgia"
+                                width="600" height="400" loading="lazy" decoding="async">
+                        </div>
+                        <div class="service-content">
+                            <span class="service-badge">Destaque</span>
+                            <h3>Rinomodelação (rinopreenchimento)</h3>
+                            <p>Corrija imperfeições do nariz sem cirurgia com rinomodelação no Tatuapé. Resultado
+                                imediato e sem tempo de recuperação.</p>
+                            <button type="button" class="btn-secondary" data-service="rinomodelacao">Saiba Mais</button>
+                        </div>
+                    </article>
                 </div>
 
-                <div class="services-filter">
-                    <button class="filter-btn active" data-filter="todos">Todos</button>
-                    <button class="filter-btn" data-filter="facial">Facial</button>
-                    <button class="filter-btn" data-filter="corporal">Corporal</button>
-                    <button class="filter-btn" data-filter="consultoria">Consultoria</button>
+                <h3 class="subsection-title">Serviços complementares</h3>
+                <p class="section-subtitle complementary-intro">Harmonização facial, lábios, sobrancelhas e olhar, com
+                    técnicas modernas no Tatuapé para um resultado equilibrado e natural.</p>
+
+                <div class="services-filter" role="group" aria-label="Filtrar serviços">
+                    <button type="button" class="filter-btn active" data-filter="todos">Todos</button>
+                    <button type="button" class="filter-btn" data-filter="harmonizacao">Harmonização facial</button>
+                    <button type="button" class="filter-btn" data-filter="labios">Lábios</button>
+                    <button type="button" class="filter-btn" data-filter="sobrancelhas">Sobrancelhas</button>
+                    <button type="button" class="filter-btn" data-filter="olhar">Olhar</button>
                 </div>
 
                 <div class="services-grid">
-                    <div class="service-card" data-category="corporal">
-                        <div class="service-image"
-                            style="background: linear-gradient(135deg, #f0e6e8 0%, #d8cece 100%);"></div>
+                    <article class="service-card" data-category="labios">
+                        <div class="service-image">
+                            <img src="img/labios.jpg"
+                                alt="Harmonização labial no Tatuapé, lábios naturais e equilíbrio em São Paulo"
+                                width="600" height="400" loading="lazy" decoding="async">
+                        </div>
                         <div class="service-content">
-                            <h3>Massagem</h3>
-                            <p>Relaxante, modeladora e terapêutica. Equilíbrio para corpo e mente.</p>
-                            <button class="btn-secondary" data-service="massagem">Saiba Mais</button>
+                            <h3>Harmonização labial</h3>
+                            <p>Equilibra cor e forma dos lábios no Tatuapé, com técnica micropigmentar precisa, para um
+                                sorriso coeso com o restante do rosto e acabamento natural.</p>
+                            <button type="button" class="btn-secondary" data-service="harmonizacao-labial">Saiba
+                                Mais</button>
                         </div>
-                    </div>
-                    <div class="service-card" data-category="corporal">
-                        <div class="service-image"
-                            style="background: linear-gradient(135deg, #e8e0e6 0%, #d0c8ce 100%);"></div>
+                    </article>
+                    <article class="service-card" data-category="labios">
+                        <div class="service-image">
+                            <img src="img/talita-felix.jpg"
+                                alt="Talita Felix, profissional de estética facial no Tatuapé"
+                                width="600" height="400" loading="lazy" decoding="async">
+                        </div>
                         <div class="service-content">
-                            <h3>Podologia</h3>
-                            <p>Cuidados profissionais para seus pés. Saúde e estética em um só lugar.</p>
-                            <button class="btn-secondary" data-service="podologia">Saiba Mais</button>
+                            <h3>Revitalização labial</h3>
+                            <p>Protocolo para devolver viço e aparência saudável aos lábios em São Paulo, ideal antes ou
+                                após outros procedimentos, com acompanhamento individualizado.</p>
+                            <button type="button" class="btn-secondary" data-service="revitalizacao-labial">Saiba
+                                Mais</button>
                         </div>
-                    </div>
-                    <div class="service-card" data-category="facial">
-                        <div class="service-image"
-                            style="background: linear-gradient(135deg, #f5e8e6 0%, #ddd0ce 100%);"></div>
+                    </article>
+                    <article class="service-card" data-category="labios">
+                        <div class="service-image">
+                            <img src="img/micropigmentacao-labial.jpg"
+                                alt="Micropigmentação labial no Tatuapé, cor uniforme e acabamento natural em São Paulo"
+                                width="600" height="400" loading="lazy" decoding="async">
+                        </div>
                         <div class="service-content">
-                            <h3>Cabelo</h3>
-                            <p>Corte, coloração, tratamentos capilares. Seu cabelo dos sonhos.</p>
-                            <button class="btn-secondary" data-service="cabelo">Saiba Mais</button>
+                            <h3>Micropigmentação labial</h3>
+                            <p>Definição duradoura do contorno e cor dos lábios em São Paulo, com conforto, simetria e
+                                aspecto saudável no dia a dia.</p>
+                            <button type="button" class="btn-secondary" data-service="micropigmentacao-labial">Saiba
+                                Mais</button>
                         </div>
-                    </div>
-                    <div class="service-card" data-category="corporal">
-                        <div class="service-image"
-                            style="background: linear-gradient(135deg, #e6e8f0 0%, #cecdd8 100%);"></div>
+                    </article>
+                    <article class="service-card" data-category="sobrancelhas">
+                        <div class="service-image">
+                            <img src="https://images.pexels.com/photos/3373743/pexels-photo-3373743.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop"
+                                alt="Microblading fio a fio no Tatuapé, sobrancelhas definidas e naturais em São Paulo"
+                                width="600" height="400" loading="lazy" decoding="async">
+                        </div>
                         <div class="service-content">
-                            <h3>Depilação a Laser</h3>
-                            <p>Tecnologia avançada para pele suave e duradoura. Conforto e eficácia.</p>
-                            <button class="btn-secondary" data-service="depilacao">Saiba Mais</button>
+                            <h3>Microblading fio a fio (hiper-realista)</h3>
+                            <p>Sobrancelhas com aparência natural no Tatuapé: fios desenhados um a um para simular pelo
+                                real e emoldurar o olhar.</p>
+                            <button type="button" class="btn-secondary" data-service="microblading">Saiba Mais</button>
                         </div>
-                    </div>
-                    <div class="service-card" data-category="consultoria">
-                        <div class="service-image"
-                            style="background: linear-gradient(135deg, #e8e6f0 0%, #d0ced8 100%);"></div>
+                    </article>
+                    <article class="service-card" data-category="sobrancelhas">
+                        <div class="service-image">
+                            <img src="img/shadow-line.jpg"
+                                alt="Shadow line no Tatuapé, técnica fio e sombra em sobrancelhas, São Paulo"
+                                width="600" height="400" loading="lazy" decoding="async">
+                        </div>
                         <div class="service-content">
-                            <h3>Assessoria Jurídica</h3>
-                            <p>Consultoria especializada para profissionais de estética e beleza.</p>
-                            <button class="btn-secondary" data-service="juridica">Saiba Mais</button>
+                            <h3>Shadow line (fio + sombra)</h3>
+                            <p>Técnica combinada de fio e sombra para densidade e profundidade, com acabamento suave e
+                                elegante no Tatuapé.</p>
+                            <button type="button" class="btn-secondary" data-service="shadow-line">Saiba Mais</button>
                         </div>
-                    </div>
-                </div>
-
-                <div class="rotating-spaces">
-                    <h3 class="subsection-title">Espaços em Rotatividade</h3>
-                    <div class="services-grid">
-                        <div class="service-card rotating" data-category="facial">
-                            <div class="service-image"
-                                style="background: linear-gradient(135deg, #f0e8e6 0%, #d8d0ce 100%);"></div>
-                            <div class="service-content">
-                                <span class="service-badge new">Novo</span>
-                                <h3>Estética Facial</h3>
-                                <p>Limpeza de pele, peeling e tratamentos anti-idade.</p>
-                                <button class="btn-secondary" data-service="estetica-facial">Saiba Mais</button>
-                            </div>
+                    </article>
+                    <article class="service-card" data-category="olhar">
+                        <div class="service-image">
+                            <img src="https://images.pexels.com/photos/5128234/pexels-photo-5128234.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200&amp;h=800&amp;fit=crop"
+                                alt="Alongamento de cílios no Tatuapé, olhar com cílios longos e naturais em São Paulo"
+                                width="600" height="400" loading="lazy" decoding="async">
                         </div>
-                        <div class="service-card rotating" data-category="corporal">
-                            <div class="service-image"
-                                style="background: linear-gradient(135deg, #e6f0e8 0%, #ced8d0 100%);"></div>
-                            <div class="service-content">
-                                <span class="service-badge soon">Em Breve</span>
-                                <h3>Drenagem Linfática</h3>
-                                <p>Técnica especializada para bem-estar e redução de inchaço.</p>
-                                <button class="btn-secondary" data-service="drenagem" disabled>Em Breve</button>
-                            </div>
+                        <div class="service-content">
+                            <h3>Alongamento de cílios híbrido</h3>
+                            <p>Olhar marcante e natural: mistura de fios para volume e definição, aplicada com segurança
+                                para valorizar seus cílios no Tatuapé.</p>
+                            <button type="button" class="btn-secondary" data-service="cilios-hibrido">Saiba Mais</button>
                         </div>
-                        <div class="service-card rotating" data-category="corporal">
-                            <div class="service-image"
-                                style="background: linear-gradient(135deg, #f0e6ea 0%, #d8ced2 100%);"></div>
-                            <div class="service-content">
-                                <span class="service-badge soon">Em Breve</span>
-                                <h3>Reflexologia</h3>
-                                <p>Terapia holística através dos pontos reflexos dos pés.</p>
-                                <button class="btn-secondary" data-service="reflexologia" disabled>Em Breve</button>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="quem-somos" class="about">
+        <section id="quem-somos" class="about" aria-labelledby="sobre-heading">
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2 class="section-title">Quem Somos</h2>
-                        <p>O Queen Look nasceu da paixão por realçar a beleza natural de cada pessoa. Somos um espaço
-                            multidisciplinar que reúne profissionais especializados, comprometidos em oferecer
-                            experiências transformadoras com excelência técnica e cuidado genuíno.</p>
-                        <p>Acreditamos que beleza vai além da estética: é autoestima, bem-estar e autoconhecimento. Por
-                            isso, criamos um ambiente acolhedor e sofisticado, onde cada detalhe é pensado para
-                            proporcionar momentos únicos de cuidado pessoal.</p>
-                        <p>Nossa equipe atualiza-se constantemente com as melhores práticas do mercado, aliando técnicas
-                            modernas a um atendimento humanizado. Aqui, você é única.</p>
+                        <h2 id="sobre-heading" class="section-title section-title--left">Quem Somos</h2>
+                        <p>Somos referência em <strong>estética facial avançada no Tatuapé</strong>, São Paulo, com
+                            atendimento personalizado e protocolos desenhados para o seu rosto, seu perfil e seus
+                            objetivos. Cada avaliação é uma conversa técnica e acolhedora, para definir o que faz sentido
+                            para você.</p>
+                        <p>Trabalhamos com <strong>técnicas modernas</strong> em botox no Tatuapé, preenchimento labial
+                            no Tatuapé, rinomodelação, micropigmentação e procedimentos para olhar e sobrancelhas, sempre
+                            priorizando <strong>segurança, naturalidade e resultados harmoniosos</strong> que elevam a
+                            autoestima sem exageros.</p>
+                        <p>Nosso compromisso é claro: excelência na execução, transparência nas indicações e um
+                            resultado que valorize sua identidade. Agende sua avaliação e conheça o cuidado de quem vive
+                            a estética facial com seriedade e paixão.</p>
                     </div>
                     <div class="about-gallery">
-                        <div class="gallery-item"
-                            style="background: linear-gradient(135deg, #f5e6e8 0%, #e0d0d2 100%);"></div>
-                        <div class="gallery-item"
-                            style="background: linear-gradient(135deg, #e8d5d0 0%, #d2c0bb 100%);"></div>
-                        <div class="gallery-item"
-                            style="background: linear-gradient(135deg, #f0e6e8 0%, #dad0d2 100%);"></div>
-                        <div class="gallery-item"
-                            style="background: linear-gradient(135deg, #e8e0e6 0%, #d2cad0 100%);"></div>
+                        <figure class="gallery-item reveal">
+                            <img src="https://images.pexels.com/photos/7446923/pexels-photo-7446923.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=900&amp;fit=crop"
+                                alt="Profissional realizando procedimento estético facial no Tatuapé"
+                                width="640" height="640" loading="lazy" decoding="async">
+                        </figure>
+                        <figure class="gallery-item reveal">
+                            <img src="img/amanda.png"
+                                alt="Atendimento em estética facial no Tatuapé"
+                                width="640" height="640" loading="lazy" decoding="async">
+                        </figure>
+                        <figure class="gallery-item reveal">
+                            <img src="img/espaco.png"
+                                alt="Clínica de estética facial no Tatuapé"
+                                width="640" height="640" loading="lazy" decoding="async">
+                        </figure>
+                        <figure class="gallery-item reveal">
+                            <img src="https://images.pexels.com/photos/3985311/pexels-photo-3985311.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900&amp;h=900&amp;fit=crop"
+                                alt="Materiais e protocolo para procedimentos de estética facial no Tatuapé"
+                                width="640" height="640" loading="lazy" decoding="async">
+                        </figure>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contato" class="contact">
+        <section id="contato" class="contact" aria-labelledby="contato-heading">
             <div class="container">
-                <h2 class="section-title">Contato</h2>
-                <p class="section-subtitle">Estamos prontos para cuidar de você</p>
+                <h2 id="contato-heading" class="section-title">Contato</h2>
+                <p class="section-subtitle">Agende sua avaliação no Tatuapé. Atendemos com profissionalismo e cuidado.
+                </p>
 
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-icon phone"></div>
+                            <div class="contact-icon phone" aria-hidden="true"></div>
                             <div>
                                 <h3>Telefone</h3>
                                 <a href="tel:+5511972336835">(11) 97233-6835</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon whatsapp"></div>
+                            <div class="contact-icon whatsapp" aria-hidden="true"></div>
                             <div>
                                 <h3>WhatsApp</h3>
-                                <a href="https://wa.me/5511972336835?text=Olá!%20Gostaria%20de%20agendar%20um%20horário."
+                                <a href="https://wa.me/5511972336835?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
                                     target="_blank" rel="noopener">Enviar Mensagem</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon email"></div>
+                            <div class="contact-icon email" aria-hidden="true"></div>
                             <div>
                                 <h3>E-mail</h3>
-                                <a href="mailto:contato@queenlook.com.br">talitafelix@hotmail.com</a>
+                                <a href="mailto:talitafelix@hotmail.com">talitafelix@hotmail.com</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon location"></div>
+                            <div class="contact-icon location" aria-hidden="true"></div>
                             <div>
                                 <h3>Endereço</h3>
                                 <p>
                                     R. Itapura, 1182<br>
-                                    Vila Gomes Cardim, São Paulo - SP<br>
+                                    Vila Gomes Cardim, Tatuapé, São Paulo, SP<br>
                                     CEP 03310-000
                                 </p>
                                 <a href="https://www.google.com/maps/place/Queen+Look/@-23.5490264,-46.5681625,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce5e91eca8aaa9:0xe3b141dac9ce8c3a!8m2!3d-23.5490264!4d-46.5655876!16s%2Fg%2F11fx8wmvxt?entry=ttu"
@@ -248,7 +317,7 @@
 
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon clock"></div>
+                            <div class="contact-icon clock" aria-hidden="true"></div>
                             <div>
                                 <h3>Horário de Funcionamento</h3>
                                 <p>Segunda a Sexta: 9h às 20h<br>Sábado: 9h às 18h<br>Domingo: Fechado</p>
@@ -260,7 +329,7 @@
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.347690026697!2d-46.56423032555819!3d-23.55654636135648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5e91eca8aaa9%3A0xe3b141dac9ce8c3a!2sQueen%20Look!5e0!3m2!1spt-BR!2sbr!4v1729167400000!5m2!1spt-BR!2sbr"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"
-                            title="Localização Queen Look - R. Itapura, 1182 - Vila Gomes Cardim, São Paulo - SP">
+                            title="Mapa: Talita Estética Facial, R. Itapura 1182, Tatuapé, São Paulo">
                         </iframe>
                     </div>
 
@@ -273,46 +342,60 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">Queen Look</div>
-                    <p>Estética Premium & Bem-Estar</p>
+                    <a href="#home" class="logo logo--footer logo-link">
+                        <img src="img/logo.png" width="180" height="45"
+                            alt="Talita Estética Facial, estética facial Tatuapé" loading="lazy" decoding="async"
+                            class="logo-img">
+                    </a>
+                    <p>Estética facial avançada no Tatuapé, São Paulo</p>
                 </div>
                 <div class="footer-social">
                     <h4>Redes Sociais</h4>
                     <div class="social-links">
                         <a href="https://instagram.com/queenlook" target="_blank" rel="noopener" aria-label="Instagram">
-                            <div class="social-icon instagram"></div>
+                            <span class="social-icon instagram" aria-hidden="true"></span>
                         </a>
                         <a href="https://facebook.com/queenlook" target="_blank" rel="noopener" aria-label="Facebook">
-                            <div class="social-icon facebook"></div>
+                            <span class="social-icon facebook" aria-hidden="true"></span>
                         </a>
-                        <a href="https://wa.me/5511972336835" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <div class="social-icon whatsapp"></div>
+                        <a href="https://wa.me/5511972336835?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+                            target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <span class="social-icon whatsapp" aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
                 <div class="footer-address">
                     <h4>Endereço</h4>
-                    <p>R. Itapura, 1182<br>Vila Gomes Cardim, São Paulo - SP</p>
+                    <p>R. Itapura, 1182<br>Vila Gomes Cardim, Tatuapé, São Paulo, SP</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Queen Look. Todos os direitos reservados. Desenvolvido por CODE85.</p>
+                <p>&copy; 2026 Talita Estética Facial. Todos os direitos reservados. Desenvolvido por CODE85.</p>
             </div>
         </div>
     </footer>
 
-    <div class="modal" id="serviceModal">
-        <div class="modal-overlay"></div>
+    <a href="https://wa.me/5511972336835?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: agendar uma avaliação">
+        <svg class="whatsapp-float-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+            aria-hidden="true">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <div class="modal" id="serviceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay" tabindex="-1"></div>
         <div class="modal-content">
-            <button class="modal-close" aria-label="Fechar">&times;</button>
+            <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
             <div class="modal-body">
                 <h2 id="modalTitle"></h2>
                 <p id="modalDescription"></p>
-                <a href="#contato" class="btn-primary modal-cta">Agendar Agora</a>
+                <a href="#contato" class="btn-primary modal-cta">Agendar Avaliação</a>
             </div>
         </div>
     </div>
-    <script defer src="script.js?v=1"></script>\
+    <script defer src="script.js?v=8"></script>
 </body>
 
 </html>
