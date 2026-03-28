@@ -878,6 +878,26 @@ figure {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.footer-bottom .footer-dev-link {
+  color: #d4af37;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, filter 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-bottom .footer-dev-link:hover {
+  color: #f0d878;
+  filter: brightness(1.06);
+  text-shadow: 0 0 12px rgba(240, 216, 120, 0.35);
+}
+
+.footer-bottom .footer-dev-link:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.55);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .modal {
   display: none;
   position: fixed;
