@@ -136,6 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollToSection(id);
         closeMenu();
       }
+      if (href && href.startsWith('https://wa.me')) {
+        closeMenu();
+      }
     });
   });
 
@@ -202,11 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'auto';
   };
 
-  document.querySelectorAll('.modal-cta[href="#contato"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
+  document.querySelectorAll('a.modal-cta').forEach(a => {
+    a.addEventListener('click', () => {
       closeModal();
-      scrollToSection('contato');
     });
   });
 
