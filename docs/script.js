@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSlides = document.querySelectorAll('.hero-slide');
 
   const serviceDetails = {
-    botox: {
-      title: 'Botox (toxina botulínica)',
+    'design-sobrancelhas': {
+      title: 'Curso de Design de Sobrancelhas',
       description:
-        'Suavize linhas de expressão com aplicação de toxina botulínica no Tatuapé. Procedimento seguro, com avaliação individualizada, que proporciona aparência mais jovem e natural, sem abrir mão da expressividade quando bem indicado.'
+        'Aprenda técnicas modernas de design de sobrancelhas, do básico ao avançado, com foco em simetria, visagismo e naturalidade. Formação prática para quem deseja atuar como profissional de estética do olhar no Tatuapé e região.'
     },
     'preenchimento-labial': {
       title: 'Preenchimento labial',
