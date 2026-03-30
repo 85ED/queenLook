@@ -590,6 +590,11 @@ figure {
   margin-bottom: var(--spacing-lg);
 }
 
+.courses-grid {
+  grid-template-columns: minmax(300px, 560px);
+  justify-content: center;
+}
+
 .about {
   padding: var(--spacing-xxl) 0;
   background: var(--color-bg-light);
@@ -606,6 +611,26 @@ figure {
   margin-bottom: var(--spacing-md);
   font-size: 1.05rem;
   line-height: 1.8;
+}
+
+.about-specialist {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.about-specialist-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.about-specialist p {
+  margin-bottom: 0;
 }
 
 .about-gallery {
@@ -1109,6 +1134,11 @@ figure {
 
   .about-content {
     grid-template-columns: 1fr;
+  }
+
+  .about-specialist {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .contact-content {

@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroSlides = document.querySelectorAll('.hero-slide');
 
   const serviceDetails = {
-    'design-sobrancelhas': {
-      title: 'Curso de Design de Sobrancelhas',
+    'curso-sobrancelhas': {
+      title: 'Curso de Micropigmentação e Design de Sobrancelhas',
       description:
-        'Aprenda técnicas modernas de design de sobrancelhas, do básico ao avançado, com foco em simetria, visagismo e naturalidade. Formação prática para quem deseja atuar como profissional de estética do olhar no Tatuapé e região.'
+        'Formação completa para quem deseja atuar na área da beleza. Aprenda técnicas de design de sobrancelhas, visagismo e micropigmentação, do básico ao avançado, com prática supervisionada e foco em resultados naturais e profissionais.'
     },
     'preenchimento-labial': {
       title: 'Preenchimento labial',
