@@ -256,6 +256,31 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScroll = currentScroll;
   });
 
+  const GOOGLE_ADS_WHATSAPP_CONVERSION = 'AW-17516149290/chPHCIDM_pMdEKr0rKBB';
+  const CLINIC_WHATSAPP_NUMBER = '5511972336835';
+
+  const isClinicWhatsappHref = href => {
+    if (!href) return false;
+    try {
+      const url = new URL(href, window.location.href);
+      const host = url.hostname.replace(/^www\./, '');
+      if (host === 'wa.me') {
+        const path = url.pathname.replace(/^\//, '');
+        return path === CLINIC_WHATSAPP_NUMBER || path.startsWith(`${CLINIC_WHATSAPP_NUMBER}?`);
+      }
+      if (host === 'api.whatsapp.com') {
+        const phone = (url.searchParams.get('phone') || '').replace(/\D/g, '');
+        return phone === CLINIC_WHATSAPP_NUMBER;
+      }
+    } catch {
+      return (
+        href.includes(`wa.me/${CLINIC_WHATSAPP_NUMBER}`) ||
+        href.includes(`phone=${CLINIC_WHATSAPP_NUMBER}`)
+      );
+    }
+    return false;
+  };
+
   const getWhatsappClickSource = link => {
     if (link.classList.contains('whatsapp-float')) return 'float_button';
     if (link.classList.contains('whatsapp-widget-bubble-link')) return 'bubble_cta';
@@ -267,13 +292,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return 'other';
   };
 
-  document.querySelectorAll('a[href*="wa.me/5511972336835"]').forEach(link => {
+  const trackWhatsappEngagement = link => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'whatsapp_click', {
+      link_source: getWhatsappClickSource(link)
+    });
+    gtag('event', 'conversion', {
+      send_to: GOOGLE_ADS_WHATSAPP_CONVERSION
+    });
+  };
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    if (!isClinicWhatsappHref(link.getAttribute('href'))) return;
     link.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'whatsapp_click', {
-          link_source: getWhatsappClickSource(link)
-        });
-      }
+      trackWhatsappEngagement(link);
     });
   });
 
