@@ -255,4 +255,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     lastScroll = currentScroll;
   });
+
+  const whatsappBubble = document.getElementById('whatsappBubble');
+  const whatsappBubbleClose = document.getElementById('whatsappBubbleClose');
+  const WHATSAPP_BUBBLE_KEY = 'queenlook_whatsapp_bubble_dismissed';
+  const WHATSAPP_BUBBLE_DELAY_MS = 10000;
+
+  const hideWhatsappBubble = (persist = true) => {
+    if (!whatsappBubble) return;
+    whatsappBubble.classList.remove('is-visible');
+    whatsappBubble.setAttribute('aria-hidden', 'true');
+    whatsappBubble.hidden = true;
+    if (persist) {
+      try {
+        sessionStorage.setItem(WHATSAPP_BUBBLE_KEY, '1');
+      } catch {
+        /* ignore */
+      }
+    }
+  };
+
+  const showWhatsappBubble = () => {
+    if (!whatsappBubble) return;
+    try {
+      if (sessionStorage.getItem(WHATSAPP_BUBBLE_KEY)) return;
+    } catch {
+      /* ignore */
+    }
+    whatsappBubble.hidden = false;
+    whatsappBubble.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => {
+      whatsappBubble.classList.add('is-visible');
+    });
+  };
+
+  if (whatsappBubble) {
+    const bubbleDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? WHATSAPP_BUBBLE_DELAY_MS + 5000
+      : WHATSAPP_BUBBLE_DELAY_MS;
+    window.setTimeout(showWhatsappBubble, bubbleDelay);
+
+    if (whatsappBubbleClose) {
+      whatsappBubbleClose.addEventListener('click', () => hideWhatsappBubble(true));
+    }
+
+    const bubbleLink = whatsappBubble.querySelector('.whatsapp-widget-bubble-link');
+    if (bubbleLink) {
+      bubbleLink.addEventListener('click', () => hideWhatsappBubble(true));
+    }
+  }
 });
