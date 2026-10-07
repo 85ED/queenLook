@@ -24,42 +24,42 @@ document.addEventListener('DOMContentLoaded', () => {
     'preenchimento-labial': {
       title: 'Preenchimento labial',
       description:
-        'Realce o volume e contorno dos lábios com preenchimento labial no Tatuapé, garantindo harmonia facial e resultados naturais. Técnica refinada para equilíbrio entre lábios e traços, com foco em segurança e naturalidade.'
+        'Realce o volume e contorno dos lábios com harmonia facial e resultados naturais. Técnica refinada para equilíbrio entre lábios e traços, com foco em segurança e naturalidade.'
     },
     rinomodelacao: {
       title: 'Rinomodelação (rinopreenchimento)',
       description:
-        'Corrija imperfeições do nariz sem cirurgia com rinomodelação no Tatuapé. Resultado imediato, sem tempo de recuperação como em cirurgias, com planejamento para um perfil harmonioso e alinhado ao restante do rosto.'
+        'Corrija imperfeições do nariz sem cirurgia com planejamento individualizado. Resultado visível, sem tempo de recuperação como em cirurgias, para um perfil harmonioso e alinhado ao restante do rosto.'
     },
     'jato-plasma': {
       title: 'Jato de Plasma (remoção de verrugas)',
       description:
-        'Remoção segura de verrugas, pintas e pequenas imperfeições da pele com tecnologia de jato de plasma no Tatuapé. Procedimento rápido, eficaz e com excelente resultado estético. Avaliação individualizada para definir o melhor protocolo para o seu caso, com foco em segurança e acabamento natural.'
+        'Remoção segura de verrugas, pintas e pequenas imperfeições da pele com tecnologia de jato de plasma. Procedimento rápido, eficaz e com excelente resultado estético. Avaliação individualizada para definir o melhor protocolo para o seu caso, com foco em segurança e acabamento natural.'
     },
     'revitalizacao-labial': {
       title: 'Revitalização labial',
       description:
-        'Protocolo para devolver viço e aparência saudável aos lábios em São Paulo, ideal como preparação ou manutenção após harmonização ou micropigmentação. Atendimento personalizado e resultados discretos e elegantes.'
+        'Protocolo para devolver viço e aparência saudável aos lábios, ideal como preparação ou manutenção após harmonização ou micropigmentação. Atendimento personalizado e resultados discretos e elegantes.'
     },
     'micropigmentacao-labial': {
       title: 'Micropigmentação labial',
       description:
-        'Definição duradoura de contorno e cor dos lábios em São Paulo, especialmente no Tatuapé, com técnica que valoriza simetria, conforto e um resultado natural no dia a dia, elevando sua autoestima.'
+        'Definição duradoura de contorno e cor dos lábios, com técnica que valoriza simetria, conforto e um resultado natural no dia a dia, elevando sua autoestima.'
     },
     microblading: {
       title: 'Microblading fio a fio (hiper-realista)',
       description:
-        'Sobrancelhas com aparência natural no Tatuapé: fios desenhados um a um para simular pelo real e emoldurar o olhar. Ideal para quem busca hiper-realismo e harmonia com o rosto, com técnica atualizada e segura.'
+        'Sobrancelhas com aparência natural: fios desenhados um a um para simular pelo real e emoldurar o olhar. Ideal para quem busca hiper-realismo e harmonia com o rosto, com técnica atualizada e segura.'
     },
     'shadow-line': {
       title: 'Shadow line (fio + sombra)',
       description:
-        'Técnica combinada de fio e sombra para densidade e profundidade nas sobrancelhas, com acabamento suave e elegante no Tatuapé. Resultado dimensional e natural, respeitando seu formato e estilo.'
+        'Técnica combinada de fio e sombra para densidade e profundidade nas sobrancelhas, com acabamento suave e elegante. Resultado dimensional e natural, respeitando seu formato e estilo.'
     },
     'cilios-hibrido': {
       title: 'Alongamento de cílios híbrido',
       description:
-        'Olhar marcante e natural: mistura de fios para volume e definição, aplicada com segurança para valorizar seus cílios no Tatuapé. Conforto e durabilidade com visual equilibrado, sem exageros.'
+        'Olhar marcante e natural: mistura de fios para volume e definição, aplicada com segurança para valorizar seus cílios. Conforto e durabilidade com visual equilibrado, sem exageros.'
     }
   };
 
