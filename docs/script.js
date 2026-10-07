@@ -256,6 +256,27 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScroll = currentScroll;
   });
 
+  const getWhatsappClickSource = link => {
+    if (link.classList.contains('whatsapp-float')) return 'float_button';
+    if (link.classList.contains('whatsapp-widget-bubble-link')) return 'bubble_cta';
+    if (link.classList.contains('modal-cta')) return 'service_modal';
+    if (link.classList.contains('hero-cta')) return 'hero';
+    if (link.classList.contains('btn-cta')) return 'header_menu';
+    if (link.closest('#contato')) return 'contact';
+    if (link.closest('footer')) return 'footer_social';
+    return 'other';
+  };
+
+  document.querySelectorAll('a[href*="wa.me/5511972336835"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+          link_source: getWhatsappClickSource(link)
+        });
+      }
+    });
+  });
+
   const whatsappBubble = document.getElementById('whatsappBubble');
   const whatsappBubbleClose = document.getElementById('whatsappBubbleClose');
   const WHATSAPP_BUBBLE_KEY = 'queenlook_whatsapp_bubble_dismissed';
