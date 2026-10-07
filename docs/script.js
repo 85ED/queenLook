@@ -292,22 +292,89 @@ document.addEventListener('DOMContentLoaded', () => {
     return 'other';
   };
 
-  const trackWhatsappEngagement = link => {
-    if (typeof gtag !== 'function') return;
-    gtag('event', 'whatsapp_click', {
-      link_source: getWhatsappClickSource(link)
-    });
-    gtag('event', 'conversion', {
-      send_to: GOOGLE_ADS_WHATSAPP_CONVERSION
-    });
+  const WHATSAPP_TRACK_DEBUG =
+    window.location.search.includes('whatsapp_track_debug=1') ||
+    window.localStorage.getItem('whatsapp_track_debug') === '1';
+
+  const clinicWhatsappLinks = [...document.querySelectorAll('a[href]')].filter(link =>
+    isClinicWhatsappHref(link.getAttribute('href'))
+  );
+
+  if (WHATSAPP_TRACK_DEBUG) {
+    console.info('[whatsapp-track] clinic links found:', clinicWhatsappLinks.length);
+  }
+
+  const openWhatsappLink = link => {
+    const href = link.href;
+    const target = link.getAttribute('target');
+    if (target === '_blank') {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    window.location.assign(href);
   };
 
-  document.querySelectorAll('a[href]').forEach(link => {
-    if (!isClinicWhatsappHref(link.getAttribute('href'))) return;
-    link.addEventListener('click', () => {
-      trackWhatsappEngagement(link);
+  const trackWhatsappEngagement = (link, onTracked) => {
+    const source = getWhatsappClickSource(link);
+
+    if (typeof gtag !== 'function') {
+      if (WHATSAPP_TRACK_DEBUG) {
+        console.warn('[whatsapp-track] gtag unavailable; skipping events');
+      }
+      onTracked?.();
+      return;
+    }
+
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      onTracked?.();
+    };
+
+    if (WHATSAPP_TRACK_DEBUG) {
+      console.info('[whatsapp-track] click detected:', source, link.href);
+    }
+
+    gtag('event', 'whatsapp_click', {
+      link_source: source
     });
-  });
+
+    if (WHATSAPP_TRACK_DEBUG) {
+      console.info('[whatsapp-track] whatsapp_click sent:', { link_source: source });
+    }
+
+    gtag('event', 'conversion', {
+      send_to: GOOGLE_ADS_WHATSAPP_CONVERSION,
+      transport_type: 'beacon',
+      event_callback: () => {
+        if (WHATSAPP_TRACK_DEBUG) {
+          console.info('[whatsapp-track] conversion sent:', {
+            send_to: GOOGLE_ADS_WHATSAPP_CONVERSION
+          });
+        }
+        finish();
+      }
+    });
+
+    window.setTimeout(finish, 1000);
+  };
+
+  document.addEventListener(
+    'click',
+    event => {
+      const link = event.target.closest('a[href]');
+      if (!link || !isClinicWhatsappHref(link.getAttribute('href'))) return;
+
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
+        return;
+      }
+
+      event.preventDefault();
+      trackWhatsappEngagement(link, () => openWhatsappLink(link));
+    },
+    true
+  );
 
   const whatsappBubble = document.getElementById('whatsappBubble');
   const whatsappBubbleClose = document.getElementById('whatsappBubbleClose');
