@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
       description:
         'Corrija imperfeições do nariz sem cirurgia com planejamento individualizado. Resultado visível, sem tempo de recuperação como em cirurgias, para um perfil harmonioso e alinhado ao restante do rosto.'
     },
+    'linhas-expressao': {
+      title: 'Linhas de expressão (Botox)',
+      description:
+        'Suavização das linhas de expressão com aplicação de toxina botulínica, indicada conforme avaliação individual. Um cuidado personalizado para uma aparência natural e harmoniosa.'
+    },
     'jato-plasma': {
       title: 'Jato de Plasma (remoção de verrugas)',
       description:
