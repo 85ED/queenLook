@@ -439,6 +439,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bubbleLink = whatsappBubble.querySelector('.whatsapp-widget-bubble-link');
     if (bubbleLink) {
+      const botoxService = serviceDetails['linhas-expressao'];
+      if (botoxService) {
+        bubbleLink.setAttribute('href', buildWhatsappUrl(botoxService.title));
+      }
       bubbleLink.addEventListener('click', () => hideWhatsappBubble(true));
     }
   }
