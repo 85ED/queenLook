@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalOverlay = document.querySelector('.modal-overlay');
   const modalTitle = document.getElementById('modalTitle');
   const modalDescription = document.getElementById('modalDescription');
+  const modalCta = document.querySelector('.modal-cta');
   const serviceButtons = document.querySelectorAll('[data-service]');
   const heroSlides = document.querySelectorAll('.hero-slide');
 
@@ -66,6 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
       description:
         'Olhar marcante e natural: mistura de fios para volume e definição, aplicada com segurança para valorizar seus cílios. Conforto e durabilidade com visual equilibrado, sem exageros.'
     }
+  };
+
+  const CLINIC_WHATSAPP_NUMBER = '5511972336835';
+  const DEFAULT_WHATSAPP_MESSAGE = 'Olá, gostaria de agendar um atendimento.';
+
+  const buildWhatsappUrl = serviceTitle => {
+    const message = serviceTitle
+      ? `Olá! Gostaria de agendar um atendimento para ${serviceTitle}.`
+      : DEFAULT_WHATSAPP_MESSAGE;
+    return `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
   const isMobileNav = () => window.matchMedia('(max-width: 768px)').matches;
@@ -199,6 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (service && !button.disabled) {
         modalTitle.textContent = service.title;
         modalDescription.textContent = service.description;
+        if (modalCta) {
+          modalCta.setAttribute('href', buildWhatsappUrl(service.title));
+        }
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
@@ -262,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const GOOGLE_ADS_WHATSAPP_CONVERSION = 'AW-17516149290/chPHCIDM_pMdEKr0rKBB';
-  const CLINIC_WHATSAPP_NUMBER = '5511972336835';
 
   const isClinicWhatsappHref = href => {
     if (!href) return false;
