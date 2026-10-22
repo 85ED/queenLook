@@ -40,7 +40,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;600&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=17">
+    <link rel="stylesheet" href="styles.css?v=18">
 </head>
 
 <body>
@@ -427,6 +427,17 @@
         </div>
     </footer>
 
+    <aside class="floating-promo" id="floatingPromo" hidden aria-hidden="true">
+        <button type="button" class="floating-promo__dismiss" id="floatingPromoDismiss"
+            aria-label="Fechar oferta promocional">&times;</button>
+        <a href="https://wa.me/5511972336835?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20atendimento%20para%20Bot.ox."
+            class="floating-promo__action" id="floatingPromoLink" target="_blank" rel="noopener noreferrer"
+            aria-label="Abrir conversa no WhatsApp sobre esta oferta">
+            <img src="img/floating-promo.png" alt="" width="540" height="359" loading="lazy" decoding="async"
+                class="floating-promo__asset">
+        </a>
+    </aside>
+
     <div class="whatsapp-widget" id="whatsappWidget">
         <div class="whatsapp-widget-bubble" id="whatsappBubble" role="dialog" aria-labelledby="whatsappBubbleTitle"
             aria-describedby="whatsappBubbleDesc" aria-hidden="true" hidden>
@@ -463,7 +474,7 @@
             </div>
         </div>
     </div>
-    <script defer src="script.js?v=19"></script>
+    <script defer src="script.js?v=20"></script>
 </body>
 
 </html>

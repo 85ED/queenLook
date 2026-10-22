@@ -302,6 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const getWhatsappClickSource = link => {
     if (link.classList.contains('whatsapp-float')) return 'float_button';
     if (link.classList.contains('whatsapp-widget-bubble-link')) return 'bubble_cta';
+    if (link.classList.contains('floating-promo__action')) return 'floating_promo';
     if (link.classList.contains('modal-cta')) return 'service_modal';
     if (link.classList.contains('hero-cta')) return 'hero';
     if (link.classList.contains('btn-cta')) return 'header_menu';
@@ -393,6 +394,62 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     true
   );
+
+  const floatingPromo = document.getElementById('floatingPromo');
+  const floatingPromoDismiss = document.getElementById('floatingPromoDismiss');
+  const floatingPromoLink = document.getElementById('floatingPromoLink');
+  const FLOATING_PROMO_SESSION_KEY = 'queenlook_floating_promo_dismissed';
+  const FLOATING_PROMO_DELAY_MS = 2500;
+  const PROMO_ASSET_MESSAGE = 'Olá! Gostaria de agendar um atendimento para Bot.ox.';
+
+  const buildPromoAssetUrl = () =>
+    `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(PROMO_ASSET_MESSAGE)}`;
+
+  const hideFloatingPromo = (persist = true) => {
+    if (!floatingPromo) return;
+    floatingPromo.classList.remove('is-visible');
+    floatingPromo.setAttribute('aria-hidden', 'true');
+    floatingPromo.hidden = true;
+    if (persist) {
+      try {
+        sessionStorage.setItem(FLOATING_PROMO_SESSION_KEY, '1');
+      } catch {
+        /* ignore */
+      }
+    }
+  };
+
+  const showFloatingPromo = () => {
+    if (!floatingPromo) return;
+    try {
+      if (sessionStorage.getItem(FLOATING_PROMO_SESSION_KEY)) return;
+    } catch {
+      /* ignore */
+    }
+    if (floatingPromoLink) {
+      floatingPromoLink.setAttribute('href', buildPromoAssetUrl());
+    }
+    floatingPromo.hidden = false;
+    floatingPromo.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => {
+      floatingPromo.classList.add('is-visible');
+    });
+  };
+
+  if (floatingPromo) {
+    const promoDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 500
+      : FLOATING_PROMO_DELAY_MS;
+    window.setTimeout(showFloatingPromo, promoDelay);
+
+    if (floatingPromoDismiss) {
+      floatingPromoDismiss.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        hideFloatingPromo(true);
+      });
+    }
+  }
 
   const whatsappBubble = document.getElementById('whatsappBubble');
   const whatsappBubbleClose = document.getElementById('whatsappBubbleClose');

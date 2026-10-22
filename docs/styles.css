@@ -792,6 +792,81 @@ figure {
   box-shadow: var(--shadow-md);
 }
 
+.floating-promo {
+  position: fixed;
+  left: max(0.75rem, env(safe-area-inset-left));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 1450;
+  width: min(200px, 44vw);
+  max-width: 210px;
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+
+.floating-promo.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.floating-promo__asset {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.floating-promo__action {
+  display: block;
+  line-height: 0;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.floating-promo__action:hover {
+  transform: scale(1.02);
+}
+
+.floating-promo__action:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.floating-promo__dismiss {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.55);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.floating-promo__dismiss:hover {
+  color: var(--color-text);
+}
+
+.floating-promo__dismiss:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (min-width: 769px) {
+  .floating-promo {
+    width: min(250px, 20vw);
+    max-width: 270px;
+  }
+}
+
 .whatsapp-widget {
   position: fixed;
   right: max(1rem, env(safe-area-inset-right));
@@ -1186,6 +1261,19 @@ figure {
 
   .whatsapp-widget-bubble {
     transition: none;
+  }
+
+  .floating-promo {
+    transition: none;
+    transform: none;
+  }
+
+  .floating-promo.is-visible {
+    transform: none;
+  }
+
+  .floating-promo__action:hover {
+    transform: none;
   }
   .service-card:hover .service-image img {
     transform: none;
