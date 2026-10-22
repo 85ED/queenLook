@@ -799,10 +799,15 @@ figure {
   z-index: 1450;
   width: min(200px, 44vw);
   max-width: 210px;
+  display: block;
   opacity: 0;
   transform: translateX(-14px);
   transition: opacity 0.45s ease, transform 0.45s ease;
   pointer-events: none;
+}
+
+.floating-promo[hidden] {
+  display: none !important;
 }
 
 .floating-promo.is-visible {
@@ -891,6 +896,10 @@ figure {
   transform: translateY(12px) scale(0.96);
   pointer-events: none;
   transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.whatsapp-widget-bubble[hidden] {
+  display: none !important;
 }
 
 .whatsapp-widget-bubble::after {

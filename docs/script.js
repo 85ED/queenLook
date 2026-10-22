@@ -84,6 +84,111 @@ document.addEventListener('DOMContentLoaded', () => {
     return `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
+  const revealDelayedWidget = (element, visibleClass = 'is-visible') => {
+    if (!element) return;
+    element.removeAttribute('hidden');
+    element.hidden = false;
+    element.setAttribute('aria-hidden', 'false');
+    requestAnimationFrame(() => {
+      element.classList.add(visibleClass);
+    });
+  };
+
+  const hideDelayedWidget = (element, visibleClass = 'is-visible', sessionKey, persist = true) => {
+    if (!element) return;
+    element.classList.remove(visibleClass);
+    element.setAttribute('aria-hidden', 'true');
+    element.hidden = true;
+    if (persist && sessionKey) {
+      try {
+        sessionStorage.setItem(sessionKey, '1');
+      } catch {
+        /* ignore */
+      }
+    }
+  };
+
+  const initDelayedWidgets = () => {
+    const floatingPromo = document.getElementById('floatingPromo');
+    const floatingPromoDismiss = document.getElementById('floatingPromoDismiss');
+    const floatingPromoLink = document.getElementById('floatingPromoLink');
+    const FLOATING_PROMO_SESSION_KEY = 'queenlook_floating_promo_dismissed_v2';
+    const FLOATING_PROMO_DELAY_MS = 2500;
+    const PROMO_ASSET_MESSAGE = 'Olá! Gostaria de agendar um atendimento para Bot.ox.';
+
+    const buildPromoAssetUrl = () =>
+      `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(PROMO_ASSET_MESSAGE)}`;
+
+    const showFloatingPromo = () => {
+      if (!floatingPromo) return;
+      try {
+        if (sessionStorage.getItem(FLOATING_PROMO_SESSION_KEY)) return;
+      } catch {
+        /* ignore */
+      }
+      if (floatingPromoLink) {
+        floatingPromoLink.setAttribute('href', buildPromoAssetUrl());
+      }
+      revealDelayedWidget(floatingPromo);
+    };
+
+    if (floatingPromo) {
+      const promoDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 500
+        : FLOATING_PROMO_DELAY_MS;
+      window.setTimeout(showFloatingPromo, promoDelay);
+
+      if (floatingPromoDismiss) {
+        floatingPromoDismiss.addEventListener('click', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          hideDelayedWidget(floatingPromo, 'is-visible', FLOATING_PROMO_SESSION_KEY, true);
+        });
+      }
+    }
+
+    const whatsappBubble = document.getElementById('whatsappBubble');
+    const whatsappBubbleClose = document.getElementById('whatsappBubbleClose');
+    const WHATSAPP_BUBBLE_KEY = 'queenlook_whatsapp_bubble_dismissed_v2';
+    const WHATSAPP_BUBBLE_DELAY_MS = 8000;
+
+    const showWhatsappBubble = () => {
+      if (!whatsappBubble) return;
+      try {
+        if (sessionStorage.getItem(WHATSAPP_BUBBLE_KEY)) return;
+      } catch {
+        /* ignore */
+      }
+      revealDelayedWidget(whatsappBubble);
+    };
+
+    if (whatsappBubble) {
+      const bubbleDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? WHATSAPP_BUBBLE_DELAY_MS + 3000
+        : WHATSAPP_BUBBLE_DELAY_MS;
+      window.setTimeout(showWhatsappBubble, bubbleDelay);
+
+      if (whatsappBubbleClose) {
+        whatsappBubbleClose.addEventListener('click', () => {
+          hideDelayedWidget(whatsappBubble, 'is-visible', WHATSAPP_BUBBLE_KEY, true);
+        });
+      }
+
+      const bubbleLink = whatsappBubble.querySelector('.whatsapp-widget-bubble-link');
+      if (bubbleLink) {
+        const botoxService = serviceDetails['linhas-expressao'];
+        if (botoxService) {
+          bubbleLink.setAttribute('href', buildWhatsappUrl(botoxService.title));
+        }
+        bubbleLink.addEventListener('click', () => {
+          hideDelayedWidget(whatsappBubble, 'is-visible', WHATSAPP_BUBBLE_KEY, true);
+        });
+      }
+    }
+  };
+
+  initDelayedWidgets();
+
   const isMobileNav = () => window.matchMedia('(max-width: 768px)').matches;
 
   const closeMenu = () => {
@@ -165,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-      if (modal.classList.contains('active')) {
+      if (modal?.classList.contains('active')) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
       }
@@ -212,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const serviceName = button.getAttribute('data-service');
       const service = serviceDetails[serviceName];
 
-      if (service && !button.disabled) {
+      if (service && !button.disabled && modal && modalTitle && modalDescription) {
         modalTitle.textContent = service.title;
         modalDescription.textContent = service.description;
         if (modalCta) {
@@ -225,6 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const closeModal = () => {
+    if (!modal) return;
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
   };
@@ -238,9 +344,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalClose) modalClose.addEventListener('click', closeModal);
   if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
 
-  modal.addEventListener('click', e => {
-    if (e.target === modal) closeModal();
-  });
+  if (modal) {
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+  }
 
   const observerOptions = {
     threshold: 0.12,
@@ -271,6 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
+    if (!header) return;
     const currentScroll = window.pageYOffset;
     if (currentScroll > lastScroll && currentScroll > 120) {
       header.style.transform = 'translateY(-100%)';
@@ -400,112 +509,4 @@ document.addEventListener('DOMContentLoaded', () => {
     true
   );
 
-  const floatingPromo = document.getElementById('floatingPromo');
-  const floatingPromoDismiss = document.getElementById('floatingPromoDismiss');
-  const floatingPromoLink = document.getElementById('floatingPromoLink');
-  const FLOATING_PROMO_SESSION_KEY = 'queenlook_floating_promo_dismissed';
-  const FLOATING_PROMO_DELAY_MS = 2500;
-  const PROMO_ASSET_MESSAGE = 'Olá! Gostaria de agendar um atendimento para Bot.ox.';
-
-  const buildPromoAssetUrl = () =>
-    `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(PROMO_ASSET_MESSAGE)}`;
-
-  const hideFloatingPromo = (persist = true) => {
-    if (!floatingPromo) return;
-    floatingPromo.classList.remove('is-visible');
-    floatingPromo.setAttribute('aria-hidden', 'true');
-    floatingPromo.hidden = true;
-    if (persist) {
-      try {
-        sessionStorage.setItem(FLOATING_PROMO_SESSION_KEY, '1');
-      } catch {
-        /* ignore */
-      }
-    }
-  };
-
-  const showFloatingPromo = () => {
-    if (!floatingPromo) return;
-    try {
-      if (sessionStorage.getItem(FLOATING_PROMO_SESSION_KEY)) return;
-    } catch {
-      /* ignore */
-    }
-    if (floatingPromoLink) {
-      floatingPromoLink.setAttribute('href', buildPromoAssetUrl());
-    }
-    floatingPromo.hidden = false;
-    floatingPromo.setAttribute('aria-hidden', 'false');
-    requestAnimationFrame(() => {
-      floatingPromo.classList.add('is-visible');
-    });
-  };
-
-  if (floatingPromo) {
-    const promoDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? 500
-      : FLOATING_PROMO_DELAY_MS;
-    window.setTimeout(showFloatingPromo, promoDelay);
-
-    if (floatingPromoDismiss) {
-      floatingPromoDismiss.addEventListener('click', event => {
-        event.preventDefault();
-        event.stopPropagation();
-        hideFloatingPromo(true);
-      });
-    }
-  }
-
-  const whatsappBubble = document.getElementById('whatsappBubble');
-  const whatsappBubbleClose = document.getElementById('whatsappBubbleClose');
-  const WHATSAPP_BUBBLE_KEY = 'queenlook_whatsapp_bubble_dismissed';
-  const WHATSAPP_BUBBLE_DELAY_MS = 10000;
-
-  const hideWhatsappBubble = (persist = true) => {
-    if (!whatsappBubble) return;
-    whatsappBubble.classList.remove('is-visible');
-    whatsappBubble.setAttribute('aria-hidden', 'true');
-    whatsappBubble.hidden = true;
-    if (persist) {
-      try {
-        sessionStorage.setItem(WHATSAPP_BUBBLE_KEY, '1');
-      } catch {
-        /* ignore */
-      }
-    }
-  };
-
-  const showWhatsappBubble = () => {
-    if (!whatsappBubble) return;
-    try {
-      if (sessionStorage.getItem(WHATSAPP_BUBBLE_KEY)) return;
-    } catch {
-      /* ignore */
-    }
-    whatsappBubble.hidden = false;
-    whatsappBubble.setAttribute('aria-hidden', 'false');
-    requestAnimationFrame(() => {
-      whatsappBubble.classList.add('is-visible');
-    });
-  };
-
-  if (whatsappBubble) {
-    const bubbleDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? WHATSAPP_BUBBLE_DELAY_MS + 5000
-      : WHATSAPP_BUBBLE_DELAY_MS;
-    window.setTimeout(showWhatsappBubble, bubbleDelay);
-
-    if (whatsappBubbleClose) {
-      whatsappBubbleClose.addEventListener('click', () => hideWhatsappBubble(true));
-    }
-
-    const bubbleLink = whatsappBubble.querySelector('.whatsapp-widget-bubble-link');
-    if (bubbleLink) {
-      const botoxService = serviceDetails['linhas-expressao'];
-      if (botoxService) {
-        bubbleLink.setAttribute('href', buildWhatsappUrl(botoxService.title));
-      }
-      bubbleLink.addEventListener('click', () => hideWhatsappBubble(true));
-    }
-  }
 });
