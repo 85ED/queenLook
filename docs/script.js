@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
       description:
         'Formação completa para quem deseja atuar na área da beleza. Aprenda técnicas de design de sobrancelhas, visagismo e micropigmentação, do básico ao avançado, com prática supervisionada e foco em resultados naturais e profissionais.'
     },
+    'design-sobrancelhas': {
+      title: 'Design de Sobrancelhas',
+      description:
+        'Valorize seu olhar com um design de sobrancelhas personalizado, respeitando o formato do seu rosto e buscando harmonia e definição natural.'
+    },
     'preenchimento-labial': {
       title: 'Preenchimento labial',
       description:
@@ -50,17 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
     'micropigmentacao-labial': {
       title: 'Micropigmentação labial',
       description:
-        'Definição duradoura de contorno e cor dos lábios, com técnica que valoriza simetria, conforto e um resultado natural no dia a dia, elevando sua autoestima.'
+        'Definição duradoura de contorno e cor dos lábios, com técnica que valoriza simetria, conforto e um resultado natural no dia a dia.'
     },
     microblading: {
-      title: 'Microblading fio a fio (hiper-realista)',
+      title: 'Micropigmentação de Sobrancelhas (Fio a Fio)',
       description:
-        'Sobrancelhas com aparência natural: fios desenhados um a um para simular pelo real e emoldurar o olhar. Ideal para quem busca hiper-realismo e harmonia com o rosto, com técnica atualizada e segura.'
+        'Realce suas sobrancelhas com a técnica fio a fio (microblading), que cria traços semelhantes aos pelos naturais para proporcionar mais definição e um resultado harmonioso, conforme avaliação profissional.'
     },
     'shadow-line': {
-      title: 'Shadow line (fio + sombra)',
+      title: 'Micropigmentação de Sobrancelhas — Shadow Line',
       description:
-        'Técnica combinada de fio e sombra para densidade e profundidade nas sobrancelhas, com acabamento suave e elegante. Resultado dimensional e natural, respeitando seu formato e estilo.'
+        'Técnica de micropigmentação que combina definição e efeito sombreado para realçar as sobrancelhas. O resultado é planejado conforme o formato do rosto e o estilo desejado.'
     },
     'cilios-hibrido': {
       title: 'Alongamento de cílios híbrido',
@@ -74,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const buildWhatsappUrl = serviceTitle => {
     const message = serviceTitle
-      ? `Olá! Gostaria de agendar um atendimento para ${serviceTitle}.`
+      ? `Olá! Gostaria de saber mais sobre ${serviceTitle} e verificar os horários disponíveis para agendamento.`
       : DEFAULT_WHATSAPP_MESSAGE;
     return `https://wa.me/${CLINIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
