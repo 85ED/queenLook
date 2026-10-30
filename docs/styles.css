@@ -579,6 +579,20 @@ figure {
   font-size: 0.95rem;
 }
 
+.service-card-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.service-card-link:hover {
+  opacity: 0.85;
+}
+
 .subsection-title {
   text-align: center;
   font-family: var(--font-serif);
@@ -1614,6 +1628,14 @@ figure {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.landing-section-figure--portrait img {
+  max-height: min(72vh, 640px);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
 }
 
 .landing-steps {
