@@ -1594,6 +1594,14 @@ figure {
   height: auto;
 }
 
+.landing-split-media--portrait img {
+  max-height: min(72vh, 640px);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
 .landing-section-figure {
   max-width: 720px;
   margin: 40px auto 0;
