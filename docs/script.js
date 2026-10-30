@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingPromo = document.getElementById('floatingPromo');
     const floatingPromoDismiss = document.getElementById('floatingPromoDismiss');
     const floatingPromoLink = document.getElementById('floatingPromoLink');
-    const FLOATING_PROMO_SESSION_KEY = 'queenlook_floating_promo_dismissed_v2';
+    const FLOATING_PROMO_SESSION_KEY = `queenlook_floating_promo_dismissed_v2:${window.location.pathname.replace(/\/index\.html$/i, '').replace(/\/$/, '') || '/'}`;
     const FLOATING_PROMO_DELAY_MS = 2500;
     const PROMO_ASSET_MESSAGE = 'Olá! Gostaria de agendar um atendimento para Bot.ox.';
 
