@@ -109,8 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const initDelayedWidgets = () => {
-    if (!document.body.classList.contains('page-home')) return;
-
     const floatingPromo = document.getElementById('floatingPromo');
     const floatingPromoDismiss = document.getElementById('floatingPromoDismiss');
     const floatingPromoLink = document.getElementById('floatingPromoLink');
@@ -155,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const WHATSAPP_BUBBLE_DELAY_MS = 8000;
 
     const showWhatsappBubble = () => {
+      if (!document.body.classList.contains('page-home')) return;
       if (!whatsappBubble) return;
       try {
         if (sessionStorage.getItem(WHATSAPP_BUBBLE_KEY)) return;
