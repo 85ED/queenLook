@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       revealDelayedWidget(floatingPromo);
     };
 
-    if (floatingPromo) {
+    if (floatingPromo && document.body.classList.contains('page-linhas-expressao')) {
       const promoDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         ? 500
         : FLOATING_PROMO_DELAY_MS;
