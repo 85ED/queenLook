@@ -1407,3 +1407,133 @@ figure {
     padding-right: max(20px, env(safe-area-inset-right, 0px));
   }
 }
+
+/* Landing: linhas de expressão */
+.page-linhas-expressao .landing-hero {
+  padding: calc(var(--header-h) + 48px) 0 64px;
+  background: linear-gradient(180deg, var(--color-bg-soft, #faf8f6) 0%, var(--color-bg, #fff) 100%);
+}
+
+.landing-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.landing-lead {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text-muted, #5c5c5c);
+  margin: 16px 0 28px;
+  max-width: 36rem;
+}
+
+.landing-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.landing-hero-media {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.landing-hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.landing-caption {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #666);
+  padding: 10px 4px 0;
+  text-align: center;
+}
+
+.landing-section {
+  padding: 56px 0;
+}
+
+.landing-section--soft {
+  background: var(--color-bg-soft, #faf8f6);
+}
+
+.landing-narrow {
+  max-width: 720px;
+}
+
+.landing-narrow p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.landing-note {
+  font-size: 0.9375rem;
+  border-left: 3px solid var(--color-accent, #c9a87c);
+  padding-left: 16px;
+  margin-top: 1.5rem;
+}
+
+.landing-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.landing-faq-item h3 {
+  font-family: var(--font-heading, 'Cormorant', serif);
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+
+.landing-about {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+}
+
+.landing-about-photo {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.landing-cta-band {
+  text-align: center;
+  background: var(--color-primary, #2d2a26);
+  color: #fff;
+}
+
+.landing-cta-band .section-title,
+.landing-cta-band .section-subtitle {
+  color: inherit;
+}
+
+.landing-cta-band-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .landing-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-about {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-about-photo {
+    width: 100%;
+    max-width: 320px;
+  }
+}

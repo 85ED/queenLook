@@ -109,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const initDelayedWidgets = () => {
+    if (!document.body.classList.contains('page-home')) return;
+
     const floatingPromo = document.getElementById('floatingPromo');
     const floatingPromoDismiss = document.getElementById('floatingPromoDismiss');
     const floatingPromoLink = document.getElementById('floatingPromoLink');
@@ -188,6 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initDelayedWidgets();
+
+  document.querySelectorAll('[data-whatsapp-service]').forEach(link => {
+    const serviceKey = link.getAttribute('data-whatsapp-service');
+    const service = serviceDetails[serviceKey];
+    if (service) {
+      link.setAttribute('href', buildWhatsappUrl(service.title));
+    }
+  });
 
   const isMobileNav = () => window.matchMedia('(max-width: 768px)').matches;
 
